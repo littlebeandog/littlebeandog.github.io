@@ -188,7 +188,7 @@
 
 <p></p>
 
-<p><figure><img src="assets/glove-bdaf0.png" alt="pic1"></figure></p>
+<p><figure><img src="/assets/glove-bdaf0.png" alt="pic1"></figure></p>
 
 <h2 id="构建目标函数">构建目标函数</h2>
 
@@ -230,14 +230,14 @@ F=exp是上述等式的一个解,那么有:
 <span  class="math">\( J = \sum_{i,j}^V f(X_{ij})(w_i \tilde w_j + b_i + \tilde b_j - \log (X_{ij})) \)</span>
 这就是最终的目标函数.</p>
 
-<p><figure><img src="assets/glove-8a8b1.png" alt="fig3"></figure>
-<figure><img src="assets/glove-59865.png" alt="fig2"></figure></p>
+<p><figure><img src="/assets/glove-8a8b1.png" alt="fig3"></figure>
+<figure><img src="/assets/glove-59865.png" alt="fig2"></figure></p>
 
 <h2 id="和mikolov的词向量模型的联系">和Mikolov的词向量模型的联系</h2>
 
 <p>以CBOW为例:</p>
 
-<p><figure><img src="assets/glove-a5e9a.png" alt="fig4"></figure></p>
+<p><figure><img src="/assets/glove-a5e9a.png" alt="fig4"></figure></p>
 
 <p>记$Q_{ij}$为$j$出现在$i$上下文中的概率,如在word2vector中用softmax表示:
 <span  class="math">\( Q_{ij}=\frac {exp(w_i^T \tilde w_j)} {\sum_{k=1}^v(w_i^T \tilde w_k)} \)</span></p>
