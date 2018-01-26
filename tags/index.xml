@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Even - A super concise theme for Hugo</title>
+    <title>Tags on Ukiyoe - littlebeandog</title>
     <link>https://littlebeandog.github.io/tags/</link>
-    <description>Recent content in Tags on Even - A super concise theme for Hugo</description>
+    <description>Recent content in Tags on Ukiyoe - littlebeandog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 24 Jan 2018 14:28:15 +0800</lastBuildDate>
@@ -17,6 +17,42 @@
       <pubDate>Wed, 24 Jan 2018 14:28:15 +0800</pubDate>
       
       <guid>https://littlebeandog.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mf</title>
+      <link>https://littlebeandog.github.io/tags/mf/</link>
+      <pubDate>Fri, 26 Jan 2018 11:04:30 +0800</pubDate>
+      
+      <guid>https://littlebeandog.github.io/tags/mf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nlp</title>
+      <link>https://littlebeandog.github.io/tags/nlp/</link>
+      <pubDate>Fri, 26 Jan 2018 11:04:30 +0800</pubDate>
+      
+      <guid>https://littlebeandog.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Word Embedding</title>
+      <link>https://littlebeandog.github.io/tags/word-embedding/</link>
+      <pubDate>Fri, 26 Jan 2018 11:04:30 +0800</pubDate>
+      
+      <guid>https://littlebeandog.github.io/tags/word-embedding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Word to Vector</title>
+      <link>https://littlebeandog.github.io/tags/word-to-vector/</link>
+      <pubDate>Fri, 26 Jan 2018 11:04:30 +0800</pubDate>
+      
+      <guid>https://littlebeandog.github.io/tags/word-to-vector/</guid>
       <description></description>
     </item>
     

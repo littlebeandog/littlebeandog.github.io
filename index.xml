@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Even - A super concise theme for Hugo</title>
+    <title>Ukiyoe - littlebeandog</title>
     <link>https://littlebeandog.github.io/</link>
-    <description>Recent content on Even - A super concise theme for Hugo</description>
+    <description>Recent content on Ukiyoe - littlebeandog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Jan 2018 14:28:15 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2018 11:04:30 +0800</lastBuildDate>
     
 	<atom:link href="https://littlebeandog.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Glove: Global vector for word representation</title>
+      <link>https://littlebeandog.github.io/post/glove/</link>
+      <pubDate>Fri, 26 Jan 2018 11:04:30 +0800</pubDate>
+      
+      <guid>https://littlebeandog.github.io/post/glove/</guid>
+      <description>&lt;p&gt;记 $X_{ij}$ 为词$j$出现在单词$i$上下文中的次数:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[ X_i=\sum_k X_{ik} \]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[ P_{ij} = X_{ij}/X_i \]&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;为什么我们能从词的共现中提取出语法和语义&#34;&gt;为什么我们能从词的共现中提取出语法和语义&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$i=ice$, $j=steam$
+
+&lt;ul&gt;
+&lt;li&gt;$k=solid$, $P_{ik}/P_{jk}$ 应该是一个远大于1的值&lt;/li&gt;
+&lt;li&gt;$k=gas$, $P_{ik}/P_{jk}$ 应该是一个远小于1的值&lt;/li&gt;
+&lt;li&gt;$k=water$ 或$k=fashion$, $P_{ik}/P_{jk}$ 应该在1左右&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>用hugo建立博客</title>

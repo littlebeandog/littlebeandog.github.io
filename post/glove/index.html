@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Glove: Global vector for word representation - Ukiyoe - littlebeandog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="littlebeandog" /><meta name="description" content="A note of global vector of word representation" />
+<meta name="keywords" content="word embedding, mf, word to vector" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.32.4" />
+
+
+<link rel="canonical" href="https://littlebeandog.github.io/post/glove/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="Glove: Global vector for word representation" />
+<meta property="og:description" content="A note of global vector of word representation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://littlebeandog.github.io/post/glove/" />
+
+
+
+<meta property="article:published_time" content="2018-01-26T11:04:30&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-01-26T11:04:30&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Glove: Global vector for word representation">
+<meta itemprop="description" content="A note of global vector of word representation">
+
+
+<meta itemprop="datePublished" content="2018-01-26T11:04:30&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-26T11:04:30&#43;08:00" />
+<meta itemprop="wordCount" content="1108">
+
+
+
+<meta itemprop="keywords" content="word embedding,mf,word to vector,nlp," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Glove: Global vector for word representation"/>
+<meta name="twitter:description" content="A note of global vector of word representation"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ukiyoe</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ukiyoe</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Glove: Global vector for word representation</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-26 </span>
+        <div class="post-category">
+            
+              <a href="/categories/morning-paper/"> morning paper </a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>记 $X_{ij}$ 为词$j$出现在单词$i$上下文中的次数:</p>
+
+<p><span  class="math">\[ X_i=\sum_k X_{ik} \]</span></p>
+
+<p><span  class="math">\[ P_{ij} = X_{ij}/X_i \]</span></p>
+
+<h2 id="为什么我们能从词的共现中提取出语法和语义">为什么我们能从词的共现中提取出语法和语义</h2>
+
+<ul>
+<li>$i=ice$, $j=steam$
+
+<ul>
+<li>$k=solid$, $P_{ik}/P_{jk}$ 应该是一个远大于1的值</li>
+<li>$k=gas$, $P_{ik}/P_{jk}$ 应该是一个远小于1的值</li>
+<li>$k=water$ 或$k=fashion$, $P_{ik}/P_{jk}$ 应该在1左右</li>
+</ul></li>
+</ul>
+
+<p></p>
+
+<p><figure><img src="assets/glove-bdaf0.png" alt="pic1"></figure></p>
+
+<h2 id="构建目标函数">构建目标函数</h2>
+
+<h4 id="step1">step1</h4>
+
+<p>的目标函数应该是关于共现概率比值的一个函数,而不是共现概率本身.那么,关于词向量 $w_i$, $w_j$和上下文词向量 $\tilde w_k$ 应该具有如下形式:
+<span  class="math">\( F(w_i, w_j, \tilde w_k) = P_{ik} / P_{jk} \)</span>
+其中$w \in R^d$, $d$ 维词向量</p>
+
+<h4 id="step2">step2</h4>
+
+<p>F应该体现的是单词 $i$ 和单词 $j$ 之间差异, 而 $w$ 是线性空间 $R^d$ 中的向量. 所以一个自然而然的表达向量差异的方法就是作差:
+<span  class="math">\( F(w_i-w_j, \tilde w_k) = P_{ik} / P_{jk} \)</span></p>
+
+<h4 id="step3">step3</h4>
+
+<p>函数 $F$ 的参数是<strong>向量</strong>, 而等式右边是一个标量.F就需要是一个复杂的非线性函数(比如NN).不希望函数 $F$ 在向量空间中引入非线性干扰,同时破坏可解释性,所以对参数作一个矩阵乘法.
+<span  class="math">\( F((w_i - w_j)^T \tilde w_k) = P_{ik} / P_{jk} \)</span>
+这就很炫酷了,这样做还有另一个好处就是不会将不同维度混在一起.</p>
+
+<h4 id="step4">step4</h4>
+
+<p>词向量$w$ 和 上下文的词向量 $w$ 其实在向量空间中是完全等价的, 一个词既可以是核心词, 也可以是上下文. 所以 $w \leftrightarrow \tilde w$, $X \leftrightarrow X^T$,在目标函数中也希望能体现出这种对称性.</p>
+
+<p>根据前面的定义:
+<span  class="math">\( F(w_i^T \tilde w_k) = X_{ik} / X_i = P_{ik} \)</span>
+<span  class="math">\( F(w_j^T \tilde w_k) = X_{jk} / X_j = P_{jk} \)</span>
+带入等式右边:
+<span  class="math">\( F((w_i - w_j)^T \tilde w_k) = \frac{F(w_i^T \tilde w_k)}{F(w_j^T \tilde w_k)} \)</span>
+F=exp是上述等式的一个解,那么有:
+<span  class="math">\( \frac{e^{w_i^T \tilde w_k}}{e^{w_j^T \tilde w_k}} = \frac{P_{ik}}{P_{jk}} \)</span>
+<span  class="math">\( w_i^T \tilde w_k = log(P_{ik}) = log(X_{ik}) - log(X_i) \)</span>
+其中 $log(X_i)$ 是和单词 $k$ 无关的, 所以可以记为 $w_i$的一个偏置项,再额外增加一个关于 $w_k$的偏置项 $\tilde b_k$:
+<span  class="math">\( w_i \tilde w_k + b_i + \tilde b_k = \log (X_{ik}) \)</span></p>
+
+<h4 id="step5">step5</h4>
+
+<p>还有最后一个问题,在最终的目标函数中应该体现出共现次数的作用.共现越多的$(i, j)$会提供更多的信息:
+<span  class="math">\( J = \sum_{i,j}^V f(X_{ij})(w_i \tilde w_j + b_i + \tilde b_j - \log (X_{ij})) \)</span>
+这就是最终的目标函数.</p>
+
+<p><figure><img src="assets/glove-8a8b1.png" alt="fig3"></figure>
+<figure><img src="assets/glove-59865.png" alt="fig2"></figure></p>
+
+<h2 id="和mikolov的词向量模型的联系">和Mikolov的词向量模型的联系</h2>
+
+<p>以CBOW为例:</p>
+
+<p><figure><img src="assets/glove-a5e9a.png" alt="fig4"></figure></p>
+
+<p>记$Q_{ij}$为$j$出现在$i$上下文中的概率,如在word2vector中用softmax表示:
+<span  class="math">\( Q_{ij}=\frac {exp(w_i^T \tilde w_j)} {\sum_{k=1}^v(w_i^T \tilde w_k)} \)</span></p>
+
+<p>目标函数为:</p>
+
+<p><span  class="math">\[ J= - \sum_{i \in V} \sum_{j \in context(i)} \log p( j | i) =  - \sum_{i \in V} \sum_{j \in context(i)} \log Q_{ij}\]</span></p>
+
+<p>将相同的单词对 $(i, j)$ 放在一起计算,转化为:
+<span  class="math">\(
+L_{w2v} = -\sum_{i=1}^v X_i \sum_{j=1}^v P_{ij} \log Q_{ij} = \sum X_i H(P_i, Q_i)\)</span></p>
+
+<p>在实际应用中,交叉熵损失在计算时有一些缺点:</p>
+
+<ul>
+<li>长尾会导致给无关单词对太多权重</li>
+<li>需要比较好的归一化
+用平方差代替交叉熵:
+<span  class="math">\( \hat J = \sum_{i, j} X_i (\hat P_{ij} - \hat Q_{ij})^2 \)</span></li>
+</ul>
+
+<p>这里 $\hat P$ 和 $\hat Q$ 代表未归一化的值, $\hat P_{ij} = X_{ij}$, $\hat Q_{ij}=exp(w_i \tilde w_j)$</p>
+
+<p>如果将这里的 $X_i$ 变为更一般化的权重函数,并加上偏置项,那么就和Glove的目标函数在形式上完全一致.</p>
+
+<p><span  class="math">\[ \hat J = \sum_{i,j}^V f(X_{ij})(w_i \tilde w_j + b_i + \tilde b_j - \log (X_{ij})) \]</span></p>
+
+<h1 id="glove-vs-word2vector">Glove vs Word2vector</h1>
+
+<table class="colors">
+<thead>
+<tr>
+<th colspan="4">Results for 600 dims, context window of 10, 1.9B words of EN Wikipedia.</th>
+</tr>
+<tr>
+<th>algorithm</th>
+<th>accuracy on the word analogy task</th>
+<th>wallclock time</th>
+<th>peak RAM [MB]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I/O only = iterating over wiki with<br>
+<em>sum(len(text) for text in filtered_wiki())</em></td>
+<td>N/A</td>
+<td>3m</td>
+<td>25</td>
+</tr>
+<tr>
+<td>GloVe, 10 epochs, learning rate 0.05</td>
+<td>67.1%</td>
+<td>4h12m</td>
+<td>9,414</td>
+</tr>
+<tr>
+<td>GloVe, 100 epochs, learning rate 0.05</td>
+<td>67.3%</td>
+<td>18h39m</td>
+<td>9,452</td>
+</tr>
+<tr>
+<td>word2vec, hierarchical skipgram, 1 epoch</td>
+<td>57.4%</td>
+<td>3h10m</td>
+<td><strong>266</strong></td>
+</tr>
+
+<tr>
+<td>word2vec, negative sampling with 10 samples, 1 epoch</td>
+<td><strong>68.3%</strong></td>
+<td>8h38m</td>
+<td>628</td>
+</tr>
+<tr>
+<td>word2vec, <a href="https://code.google.com/p/word2vec/#Pre-trained_word_and_phrase_vectors">pre-trained GoogleNews model released by Tomáš Mikolov</a>, 300 dims, 3,000,000 vocabulary</td>
+<td>55.3%</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/word-embedding/">word embedding</a>
+          
+          <a href="/tags/mf/">mf</a>
+          
+          <a href="/tags/word-to-vector/">word to vector</a>
+          
+          <a href="/tags/nlp/">nlp</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/build_hugo_blog/">
+            <span class="next-text nav-default">用hugo建立博客</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:42shazi@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://littlebeandog.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">olOwOlo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+</body>
+</html>

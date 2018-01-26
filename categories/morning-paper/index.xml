@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Ukiyoe - littlebeandog</title>
-    <link>https://littlebeandog.github.io/post/</link>
-    <description>Recent content in Posts on Ukiyoe - littlebeandog</description>
+    <title>Morning Paper on Ukiyoe - littlebeandog</title>
+    <link>https://littlebeandog.github.io/categories/morning-paper/</link>
+    <description>Recent content in Morning Paper on Ukiyoe - littlebeandog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 26 Jan 2018 11:04:30 +0800</lastBuildDate>
     
-	<atom:link href="https://littlebeandog.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://littlebeandog.github.io/categories/morning-paper/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -34,26 +34,6 @@
 &lt;li&gt;$k=water$ 或$k=fashion$, $P_{ik}/P_{jk}$ 应该在1左右&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>用hugo建立博客</title>
-      <link>https://littlebeandog.github.io/post/build_hugo_blog/</link>
-      <pubDate>Wed, 24 Jan 2018 14:28:15 +0800</pubDate>
-      
-      <guid>https://littlebeandog.github.io/post/build_hugo_blog/</guid>
-      <description>&lt;h3 id=&#34;傻瓜式安装hugo&#34;&gt;傻瓜式安装Hugo&lt;/h3&gt;
-
-&lt;h4 id=&#34;windows&#34;&gt;Windows&lt;/h4&gt;
-
-&lt;p&gt;借助windows的包管理工具&lt;strong&gt;chocolatey&lt;/strong&gt;
-- 安装 &lt;a href=&#34;https://chocolatey.org/install&#34;&gt;chocolatey&lt;/a&gt;
-- 在命令行输入&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;choco install hugo -confirm
-&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
