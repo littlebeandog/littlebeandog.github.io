@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://littlebeandog.github.io/sitemap.xml

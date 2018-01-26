@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>用hugo建立博客 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="olOwOlo" /><meta name="description" content="傻瓜式用hugo建立博客指南" />
+<meta name="keywords" content="hugo, 博客" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.32.4" />
+
+
+<link rel="canonical" href="https://littlebeandog.github.io/post/build_hugo_blog/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="用hugo建立博客" />
+<meta property="og:description" content="傻瓜式用hugo建立博客指南" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://littlebeandog.github.io/post/build_hugo_blog/" />
+
+
+
+<meta property="article:published_time" content="2018-01-24T14:28:15&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-01-24T14:28:15&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="用hugo建立博客">
+<meta itemprop="description" content="傻瓜式用hugo建立博客指南">
+
+
+<meta itemprop="datePublished" content="2018-01-24T14:28:15&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-24T14:28:15&#43;08:00" />
+<meta itemprop="wordCount" content="741">
+
+
+
+<meta itemprop="keywords" content="hugo,博客," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="用hugo建立博客"/>
+<meta name="twitter:description" content="傻瓜式用hugo建立博客指南"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ukiyoe</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ukiyoe</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">用hugo建立博客</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-24 </span>
+        <div class="post-category">
+            
+              <a href="/categories/introduction/"> introduction </a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <h3 id="傻瓜式安装hugo">傻瓜式安装Hugo</h3>
+
+<h4 id="windows">Windows</h4>
+
+<p>借助windows的包管理工具<strong>chocolatey</strong>
+- 安装 <a href="https://chocolatey.org/install">chocolatey</a>
+- 在命令行输入</p>
+
+<pre><code class="language-shell">choco install hugo -confirm
+</code></pre>
+
+<p></p>
+
+<h4 id="linux">Linux</h4>
+
+<p>直接从<a href="https://github.com/gohugoio/hugo/releases">这里</a>下载编译好的包.
+解压,将bin路径配置到<strong>环境</strong>变量中.</p>
+
+<h4 id="从源码安装">从源码安装</h4>
+
+<p>安装:
+- <a href="https://git-scm.com/">git</a>
+- <a href="https://golang.org/">Go</a>
+获取源码并编译:</p>
+
+<pre><code class="language-shell">export GOPATH=$HOME/go
+go get -v github.com/spf13/hugo
+</code></pre>
+
+<h3 id="生成博客站点">生成博客站点</h3>
+
+<p>在你希望存储站点相关文件的位置<code>my_blog_path</code>执行</p>
+
+<pre><code class="language-shell">hugo new site [my_blog_path]
+</code></pre>
+
+<p>在<code>my_blog_path</code>会生成如下结构文件:</p>
+
+<pre><code>.
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+</code></pre>
+
+<h3 id="创建第一篇文章">创建第一篇文章</h3>
+
+<p>在<code>my_blog_path</code>中执行:</p>
+
+<pre><code class="language-shell">hugo new post/first.md
+</code></pre>
+
+<p>自动生成了文件<code>content/post/first.md</code>.</p>
+
+<pre><code>---
+title: &quot;First&quot;
+date: 2018-01-24T11:59:06+08:00
+draft: true
+---
+
+正文
+</code></pre>
+
+<p><code>---</code>之间的内容是关于文章的一些元数据,以<a href="https://github.com/toml-lang/toml">toml</a>格式指定.
+之后可以开始写正文.</p>
+
+<h3 id="安装一个主题">安装一个主题</h3>
+
+<p>Hugo的开源社区有许多好看的主题,可以在<a href="https://themes.gohugo.io/">这里</a>查看.选择一个你喜欢的,找到<code>github</code>地址,将整个仓库克隆到<code>themes</code>文件夹中.比如我们选择<code>Hyde</code>:</p>
+
+<pre><code class="language-shell">git clone https://github.com/spf13/hyde.git thems/hyde
+</code></pre>
+
+<h3 id="运行hugo">运行Hugo</h3>
+
+<p>你可以在本地看看博客的效果,在<code>my_blog_path</code>运行:</p>
+
+<pre><code class="language-shell">hugo server --theme=hyde --buildDraft
+</code></pre>
+
+<p>hugo服务默认绑定在<code>1313</code>端口,你可以在浏览器中打开<a href="http://localhost:1313">http://localhost:1313</a>查看.</p>
+
+<h3 id="简单部署到github上">简单部署到Github上</h3>
+
+<p>你需要一个<code>github</code>账号,假如你的账号是<code>littlebeandog</code>.
+在你的<code>githb</code>上创建一个名称为<code>littlebeandog.github.io</code>的仓库.</p>
+
+<p>在<code>my_blog_path</code>路径下执行:</p>
+
+<pre><code class="language-shell">hugo --theme=hyde --baseUrl=&quot;http://littlebeandog.github.io/&quot;
+</code></pre>
+
+<p>博客的静态页面会生成在<code>public</code>路径下.
+将<code>public</code>路径中的所有内容push到刚刚创建的仓库的<code>master</code>分支,在<code>public</code>路径中执行如下命令:</p>
+
+<pre><code>git init
+git remote add origin https://github.com/littlebeandog/littlebeandog.github.io.git
+git add -A
+git commit -m 'init'
+git push -u origin master
+</code></pre>
+
+<p>现在任何人都可以在公网通过<code>http://littlebeandog.github.io/</code>访问你的博客了.</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/hugo/">hugo</a>
+          
+          <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:42shazi@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://littlebeandog.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">olOwOlo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+
+
+</body>
+</html>
